@@ -9,3 +9,7 @@ const chemify = function(str) {
   });
   
   console.log(strb)
+   return str;
+}
+
+chemify(content)
