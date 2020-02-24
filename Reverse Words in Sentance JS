@@ -1,0 +1,32 @@
+function reversesent(sent)
+{
+    var stack = new Array();
+    var result = "";
+    for(var i = 0; i < sent.length; i++)
+    {
+        if(sent[i] != ' ' || sent[i+1] == null)
+        {
+            stack.push(sent[i]);
+        }
+        else
+        {
+            while(stack.length > 0 )
+            {
+              result+= stack.pop();
+            }
+            result+= ' ';
+        }
+    }
+  while(stack.length > 0)
+    {
+      result+= stack.pop();
+    }
+  
+  return result.replace(/\w+/g, function(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+  });
+}
+
+var sent = "This is my favourite";
+sent = sent.toLowerCase();
+console.log(reversesent(sent));
